@@ -1,0 +1,83 @@
+// Секция Особенности
+
+.features-list {
+  margin: calc(-1 * #{$gap});
+
+  @include minMedia($tab) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include minMedia($desk) {
+    flex-wrap: nowrap;
+  }
+}
+
+.features-list__item {
+  margin: $gap;
+
+  @include maxMedia($preTab) {
+    &:not(:last-child) {
+      margin-bottom: calc(2 * #{$gap});
+    }
+  }
+
+  @include minMedia($tab) {
+    width: calc(100% / 2 - (2 * #{$gap}));
+  }
+
+  @include minMedia($desk) {
+    width: calc(100% / 4 - (2 * #{$gap}));
+  }
+}
+
+.features-list__icon {
+  width: 100%;
+  height: 120px;
+  margin-bottom: calc(2 * #{$gap});
+
+  @include centeredFlex;
+
+  @include maxMedia($preMob) {
+    max-width: 450px;
+  }
+
+  @include minMedia($mob) {
+    max-width: 450px;
+  }
+
+  @include minMedia($desk) {
+    max-width: 270px;
+    margin-bottom: calc(2 * #{$gap});
+  }
+
+  background: $primary-bg-color;
+  border-radius: 4px;
+}
+
+// Второй вариант
+// .features-list {
+//   display: flex;
+// }
+
+// если больше 4х эл-тов в списке:
+// .features-list__item:not(:nth-child(4n)) {
+//   margin-right: 30px;
+// }
+
+// если только 4 эл-та в списке:
+// .features-list__item:not(:last-child) {
+//   margin-right: 30px;
+// }
+
+.features-list__subtitle {
+  margin-bottom: 10px;
+  color: $title-text-color;
+
+  @include textFont($ff: null, $fw: 700, $fs: inherit, $lh: 1.14, $ls: null);
+  text-transform: uppercase;
+
+  @include maxMedia($preTab) {
+    text-align: center;
+  }
+}

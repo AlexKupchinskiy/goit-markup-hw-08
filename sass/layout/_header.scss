@@ -1,0 +1,11 @@
+// Шапка Общие
+
+.header {
+  border-bottom: $header-border;
+  &__container {
+    @include minMedia($tab) {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

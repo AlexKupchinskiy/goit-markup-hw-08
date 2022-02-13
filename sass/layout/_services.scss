@@ -1,0 +1,39 @@
+// Секция Услуги
+
+.section-services {
+  padding-top: 0;
+
+  @include maxMedia($preDesk) {
+    display: none;
+  }
+}
+
+.services-list {
+  display: flex;
+}
+
+.services-list__item {
+  position: relative;
+  display: block;
+
+  &:not(:last-child) {
+    margin-right: calc(2 * #{$gap});
+  }
+}
+
+.services-list__subtitle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  padding: 27px 0;
+
+  @include textFont($ff: null, $fw: 700, $fs: 14px, $lh: 1.14, $ls: 0.03em);
+
+  text-transform: uppercase;
+  text-align: center;
+
+  color: $primary-color;
+  background-color: $services-text-bg-color;
+}

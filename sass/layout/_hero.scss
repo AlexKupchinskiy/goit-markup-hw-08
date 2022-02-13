@@ -1,0 +1,90 @@
+// Секция Герой
+
+.container-fluid {
+  min-height: 400px;
+  min-width: 320px;
+  margin: 0 auto;
+
+  @include heroBg($media: mob);
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @include heroBg($media: mob, $dpr: 2x);
+  }
+  @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+    @include heroBg($media: mob, $dpr: 3x);
+  }
+
+  @include maxMedia($preMob) {
+    max-width: 480px;
+  }
+
+  @include minMedia($mob) {
+    width: 480px;
+  }
+
+  @include minMedia($tab) {
+    width: 768px;
+    @include heroBg($media: tab);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      @include heroBg($media: tab, $dpr: 2x);
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+      @include heroBg($media: tab, $dpr: 3x);
+    }
+  }
+
+  @include minMedia($desk) {
+    min-height: 600px;
+    width: 100%;
+    max-width: 1600px;
+    @include heroBg;
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      @include heroBg($dpr: 2x);
+    }
+    @media (min-device-pixel-ratio: 3), (min-resolution: 288dpi), (min-resolution: 3dppx) {
+      @include heroBg($dpr: 3x);
+    }
+  }
+}
+
+.section-hero {
+  text-align: center;
+  padding: 118px 60px;
+
+  @include maxMedia($preMob) {
+    // вспомогательный паддинг, чтобы верхнее слово не уезжало вправо
+    padding-right: 50px;
+  }
+
+  @include minMedia($tab) {
+    padding-left: 204px;
+    padding-right: 204px;
+  }
+  @include minMedia($desk) {
+    padding: 200px 0;
+  }
+}
+
+.section-hero__title {
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: calc(#{$gap} * 2);
+
+  @include textFont($ff: null, $fw: 900, $fs: 26px, $lh: 1.62, $ls: 0.06em);
+  color: $primary-color;
+  text-transform: uppercase;
+  text-align: center;
+
+  @include maxMedia($preMob) {
+    width: 100%;
+  }
+
+  @include minMedia($desk) {
+    width: 630px;
+    font-size: 44px;
+    line-height: 1.36;
+  }
+}

@@ -1,0 +1,57 @@
+// Фильтра портфолио
+
+.filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+
+  @include maxMedia($preTab) {
+    margin-bottom: 40px - 15px;
+  }
+
+  @include minMedia($tab) {
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  @include minMedia($desk) {
+    margin-bottom: 50px;
+  }
+}
+
+.filter-list__item {
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  @include maxMedia($preTab) {
+    margin-bottom: 15px;
+  }
+}
+
+.filter-list__button {
+  padding: 6px 22px;
+
+  background-color: $primary-bg-color;
+  color: $title-text-color;
+
+  @include textFont($ff: inherit, $fw: 500, $fs: 16px, $lh: 1.62, $ls: null);
+  text-align: center;
+
+  border: transparent;
+  border-radius: 4px;
+
+  transition: box-shadow $main-effect, color $main-effect, background-color $main-effect;
+
+  &:hover,
+  &:focus {
+    box-shadow: $filter-button-shadow;
+    color: $primary-color;
+    background-color: $accent-color;
+  }
+
+  &--active {
+    box-shadow: $filter-button-shadow;
+    color: $primary-color;
+    background-color: $accent-color;
+  }
+}

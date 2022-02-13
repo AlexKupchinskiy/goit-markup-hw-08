@@ -1,0 +1,58 @@
+// Футер Подписка
+
+.subscribe-form__input {
+  display: inline-block;
+  height: 50px;
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 20px;
+  padding: $gap;
+
+  @include minMedia($tab) {
+    width: 450px;
+  }
+
+  @include minMedia($desk) {
+    width: 358px;
+    margin-right: 12px;
+    margin-bottom: 0;
+  }
+
+  color: $primary-color;
+  background-color: transparent;
+  border: $subscribe-input-border;
+  box-shadow: $subscribe-input-shadow;
+  border-radius: 4px;
+
+  &::placeholder {
+    font-size: 16px;
+    line-height: 1.25;
+    color: $subscribe-placeholder-color;
+  }
+}
+
+.subscribe-form__field {
+  @include minMedia($desk) {
+    @include centeredFlex($just: space-between);
+  }
+}
+
+.subscribe-form__button {
+  @include centeredFlex();
+  padding: 0;
+
+  fill: $primary-color;
+
+  @include textFont($ff: null, $fw: 700, $fs: 16px, $lh: 1.87, $ls: 0.06em);
+}
+
+.button__text {
+  margin-right: 10px;
+}
+
+.subscribe-form__button:hover .button__icon {
+  animation-name: flyPlane;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in;
+  animation-play-state: runnung;
+}
